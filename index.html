@@ -166,7 +166,35 @@
       line-height: 1.65;
     }
 
-    /* 중간 박스 섹션: Career Highlight*/
+    /* 취미 섹션 */
+    .hobby-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .hobby-chip {
+      background: #f1f5f9;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .hobby-chip:hover {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: var(--accent-blue);
+    }
+
+    /* 중간 분리 박스: Career Highlight */
     .highlight-box {
       border: 1px solid var(--card-border);
       background-color: var(--card-bg);
@@ -201,13 +229,6 @@
 
     .keywords-chain span {
       display: inline-block;
-    }
-
-    hr {
-      border: 0;
-      height: 1px;
-      background: var(--card-border);
-      margin: 4px 0;
     }
 
     /* 타임라인 목록 */
@@ -276,7 +297,7 @@
 </head>
 <body>
 
-  <!-- 슬라이드 상단 네이비 바 -->
+  <!-- 슬라이드 상단 바 -->
   <div class="top-bar">
     <span class="tag-univ">KAIST MBA</span>
     <span class="tag-code">KAIST BIZ.69911</span>
@@ -309,6 +330,7 @@
           K-장녀, 호기심, 배려
         </div>
 
+        <!-- About -->
         <section>
           <h2>About</h2>
           <p>
@@ -318,12 +340,24 @@
             에스티로더 컴퍼니즈에서 5년 넘게 CRM 실무를 하며 고객에게 더 좋은 브랜드 경험을 오래, 다양하게 제공하는 일을 해왔습니다. 지금은 KAIST MBA와 CMU에서 AI 기술을 공부하며 비즈니스 프로세스와 사용자 경험을 개선하는 방법을 고민하고 있습니다.
           </p>
           <p>
-            주말엔 늦잠을 자고 커피와 빵을 곁들여 밀린 예능이나 &lt;나는 솔로&gt;를 봅니다. 
-            5월에 갔던 요세미티처럼 온전히 그 순간에만 집중할 수 있는 장소와 시간을 좋아합니다.
+            주말엔 늦잠을 자고 커피와 빵을 먹으며 밀린 예능이나 &lt;나는 솔로&gt;를 봅니다.
+          </p>
+          <p>
+            5월에 갔던 요세미티는 천국보다 좋았고 그 순간을 잊을 수 없습니다.
           </p>
         </section>
 
-        <!-- 중간 분리 박스: Career Highlight -->
+        <!-- Favorite Things / 취미 -->
+        <section>
+          <h2>Favorites & Hobbies</h2>
+          <div class="hobby-tags">
+            <span class="hobby-chip">🚲 따릉이 & 자전거 타기</span>
+            <span class="hobby-chip">🌿 바람 쐬며 풀 멍 때리기</span>
+            <span class="hobby-chip">🍰 숨은 디저트 맛집 탐방</span>
+          </div>
+        </section>
+
+        <!-- Career Highlight -->
         <section class="highlight-box">
           <h2 style="font-size: 1.05rem; margin-bottom: 4px;">Career Highlight</h2>
 
@@ -350,6 +384,7 @@
           </div>
         </section>
 
+        <!-- Background -->
         <section>
           <h2>Background</h2>
           <ul class="timeline-list">
