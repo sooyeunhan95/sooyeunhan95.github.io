@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>한수연 | Sooyeun Han</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
       --navy-header: #0f172a;       /* 상단 네이비 바 */
       --canvas-bg: #ffffff;         /* 메인 카드 배경 */
       --body-bg: #f8fafc;           /* 바탕 배경 */
       --accent-blue: #2563eb;       /* 슬라이드 시그니처 로열 블루 */
-      --card-border: #e2e8f0;       /* 얇은 회색 테두리 */
+      --card-border: #e2e8f0;       /* 슬라이드 외곽선 */
+      --card-bg: #f8fafc;           /* 박스 섹션 배경 */
       --text-main: #0f172a;
       --text-sub: #334155;
       --text-muted: #64748b;
@@ -82,12 +82,14 @@
       border: 1px solid var(--card-border);
       overflow: hidden;
       margin-bottom: 16px;
+      border-radius: 2px;
     }
 
     .profile-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .profile-name {
@@ -131,24 +133,23 @@
     .content-area {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 24px;
     }
 
     /* 크고 볼드하게 강조된 태그라인 */
     .hero-tagline {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--text-main);
       letter-spacing: -0.02em;
       border-bottom: 2px solid var(--accent-blue);
       padding-bottom: 12px;
-      margin-bottom: 4px;
     }
 
     section {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     h2 {
@@ -156,23 +157,57 @@
       font-weight: 700;
       color: var(--accent-blue);
       letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     p {
       color: var(--text-sub);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       word-break: keep-all;
       line-height: 1.65;
+    }
+
+    /* 중간 박스 섹션: Career Highlight*/
+    .highlight-box {
+      border: 1px solid var(--card-border);
+      background-color: var(--card-bg);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .highlight-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .highlight-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .keywords-chain {
+      font-size: 0.88rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .keywords-chain span {
+      display: inline-block;
     }
 
     hr {
       border: 0;
       height: 1px;
       background: var(--card-border);
-      margin: 8px 0;
+      margin: 4px 0;
     }
 
     /* 타임라인 목록 */
@@ -180,7 +215,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     .timeline-item {
@@ -211,7 +246,7 @@
     }
 
     footer {
-      margin-top: 24px;
+      margin-top: 16px;
       font-size: 0.82rem;
       color: var(--text-muted);
       border-top: 1px solid var(--card-border);
@@ -241,7 +276,7 @@
 </head>
 <body>
 
-  <!-- 슬라이드 상단 바 -->
+  <!-- 슬라이드 상단 네이비 바 -->
   <div class="top-bar">
     <span class="tag-univ">KAIST MBA</span>
     <span class="tag-code">KAIST BIZ.69911</span>
@@ -253,7 +288,7 @@
       <!-- 왼쪽 상단 사진 및 프로필 -->
       <aside class="profile-sidebar">
         <div class="profile-photo">
-          <img src="profile.jpg" alt="한수연 프로필 사진" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80';" />
+          <img src="profile.jpg" alt="한수연" onerror="this.onerror=null; this.src='첫 주 자기소개 PPT 슬라이드.jpg';" />
         </div>
         <div class="profile-name">한수연</div>
         <div class="profile-cohort">KMBA 3기</div>
@@ -269,9 +304,9 @@
       <!-- 오른쪽 본문 -->
       <div class="content-area">
 
-        <!-- 크고 볼드한 문구 -->
+        <!-- 볼드 태그라인 -->
         <div class="hero-tagline">
-          K-장녀, 호기심, 배려.
+          K-장녀, 호기심, 배려
         </div>
 
         <section>
@@ -280,14 +315,39 @@
             어떤 관계로 시작하든 서로 예의를 지키고, 관심을 가지고 따뜻하게 대하는 태도를 중요하게 생각합니다.
           </p>
           <p>
-            에스티로더 컴퍼니즈에서 5년 넘게 CRM 실무를 하며 고객에게 더 좋은 브랜드 경험을 오래, 다양하게 제공하는 일을 해왔습니다. 지금은 KAIST MBA와 CMU에서 AI 기술을 공부하며 비즈니스 프로세스와 사용자 경험을 개선하는 방법을 고민하고 있습니다.
+            에스티로더에서 5년 넘게 CRM 실무를 하며 고객에게 더 좋은 브랜드 경험을 오래, 다양하게 제공하는 일을 해왔습니다. 지금은 KAIST MBA와 CMU에서 AI 기술을 공부하며 비즈니스 프로세스와 사용자 경험을 개선하는 방법을 고민하고 있습니다.
           </p>
           <p>
             주말엔 늦잠을 자고 커피와 빵을 곁들여 밀린 예능이나 &lt;나는 솔로&gt;를 봅니다. 5월에 갔던 요세미티처럼 온전히 그 순간에만 집중할 수 있는 장소와 시간을 좋아합니다.
           </p>
         </section>
 
-        <hr />
+        <!-- 중간 분리 박스: Career Highlight -->
+        <section class="highlight-box">
+          <h2 style="font-size: 1.05rem; margin-bottom: 4px;">Career Highlight</h2>
+
+          <div class="highlight-item">
+            <div class="highlight-title">에스티로더 컴퍼니즈 - Corporate CRM</div>
+            <div class="keywords-chain">
+              <span>↳ 작은 것들을 위한 시</span>
+              <span>↳ 집요함</span>
+              <span>↳ 근시안적 비즈니스 전략</span>
+              <span>↳ 평화주의</span>
+            </div>
+          </div>
+
+          <div style="border-top: 1px dashed var(--card-border);"></div>
+
+          <div class="highlight-item">
+            <div class="highlight-title">KAIST MBA · CMU AI Intense program visiting scholar</div>
+            <div class="keywords-chain">
+              <span>↳ 꺾이지 않는 디버깅</span>
+              <span>↳ 비즈니스 임팩트 집착</span>
+              <span>↳ AI 실전 빌더</span>
+              <span>↳ 에이전트 조율자</span>
+            </div>
+          </div>
+        </section>
 
         <section>
           <h2>Background</h2>
